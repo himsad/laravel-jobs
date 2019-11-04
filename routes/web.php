@@ -18,3 +18,24 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', 'HomeController@index');
+
+
+Route::resource('accounts', 'AccountController');
+
+Route::resource('accounts', 'AccountController');
+
+Route::resource('countries', 'CountryController');
+
+Route::resource('failedJobs', 'FailedJobController');
+
+Route::resource('invitaions', 'InvitaionController');
+
+Route::resource('jobs', 'JobController');
+
+Route::resource('organisationUsers', 'OrganisationUserController');
+
+Route::resource('roles', 'RoleController');
+
+Route::resource('users', 'UserController');
+
+Route::resource('skills', 'SkillController');
