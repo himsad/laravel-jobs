@@ -60,5 +60,14 @@ class Country extends Model
         'name' => 'required'
     ];
 
+    public function jobs()
+    {
+        return $this->hasMany('App\Models\Job');
+    }
+
+    public function users()
+    {
+        return $this->belongsTo('App\Models\User');
+    }
     
 }

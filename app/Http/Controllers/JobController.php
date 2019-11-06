@@ -7,6 +7,7 @@ use App\Http\Requests\UpdateJobRequest;
 use App\Repositories\JobRepository;
 use App\Http\Controllers\AppBaseController;
 use Illuminate\Http\Request;
+use Auth;
 use Flash;
 use Response;
 
@@ -55,12 +56,15 @@ class JobController extends AppBaseController
     public function store(CreateJobRequest $request)
     {
         $input = $request->all();
+        $input['user_id'] = Auth::user()->id;
+
+
 
         $job = $this->jobRepository->create($input);
 
-        Flash::success('Job saved successfully.');
+        Flash::success('Job created successfully.');
 
-        return redirect(route('jobs.index'));
+        return redirect(route('jobs.show',[$job->id]));
     }
 
     /**

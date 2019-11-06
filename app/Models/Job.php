@@ -11,9 +11,9 @@ use Illuminate\Database\Eloquent\SoftDeletes;
  * @version October 20, 2019, 1:11 pm UTC
  *
  * @property integer user_id
- * @property integer title
- * @property integer skills_required
- * @property integer description
+ * @property string title
+ * @property string skills_required
+ * @property string description
  * @property string work_type
  * @property string job_type
  * @property string status
@@ -53,9 +53,9 @@ class Job extends Model
     protected $casts = [
         'id' => 'integer',
         'user_id' => 'integer',
-        'title' => 'integer',
-        'skills_required' => 'integer',
-        'description' => 'integer',
+        'title' => 'string',
+        'skills_required' => 'string',
+        'description' => 'string',
         'work_type' => 'string',
         'job_type' => 'string',
         'status' => 'string',
@@ -69,7 +69,7 @@ class Job extends Model
      * @var array
      */
     public static $rules = [
-        'user_id' => 'required',
+        
         'title' => 'required',
         'skills_required' => 'required',
         'description' => 'required',
@@ -77,5 +77,17 @@ class Job extends Model
         'job_type' => 'required'
     ];
 
+    public function user()
+    {
+        return $this->belongsTo('App\Models\User');
+    }
+    public function organisation()
+    {
+        return $this->belongsTo('App\Models\Organisation');
+    }
+    public function country()
+    {
+        return $this->belongsTo('App\Models\Country');
+    }
     
 }

@@ -84,5 +84,23 @@ class User extends Model
         'is_actively_seeking_employment' => 'required'
     ];
 
+
+
+    /**
+     * Get the comments for the blog post.
+     */
+    public function jobs()
+    {
+        return $this->hasMany('App\Models\Job');
+    }
+    public function role()
+    {
+        return $this->belongsTo('App\Models\Role');
+    }
+    public function country()
+    {
+        return $this->belongsTo('App\Models\Country');
+    }
+
     
 }

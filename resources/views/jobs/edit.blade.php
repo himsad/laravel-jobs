@@ -12,6 +12,10 @@
            <div class="box-body">
                <div class="row">
                    {!! Form::model($job, ['route' => ['jobs.update', $job->id], 'method' => 'patch']) !!}
+            <form action="" method="" >
+
+            </form>
+            
 
                         @include('jobs.fields')
 

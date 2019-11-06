@@ -57,8 +57,13 @@ class Account extends Model
      * @var array
      */
     public static $rules = [
-        'name' => 'required'
+        'name' => 'required',
+        
     ];
 
+    public function user()
+    {
+        return $this->belongsTo('App\Models\User');
+    }
     
 }

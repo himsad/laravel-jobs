@@ -76,5 +76,13 @@ class Invitaion extends Model
         'invitation_note' => 'required'
     ];
 
+    public function user()
+    {
+        return $this->belongsTo('App\Models\User');
+    }
     
+    public function job()
+    {
+        return $this->belongsTo('App\Models\Job');
+    }
 }

@@ -82,5 +82,10 @@ class Skill extends Model
         'interview_status' => 'required'
     ];
 
+    public function user()
+    {
+        return $this->belongsTo('App\Models\User');
+    }
+
     
 }

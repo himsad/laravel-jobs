@@ -1,37 +1,19 @@
-<!-- Id Field -->
-<div class="form-group">
-    {!! Form::label('id', 'Id:') !!}
-    <p>{!! $job->id !!}</p>
-</div>
+<div class="media">
+        <div class="media-left">
+            <span class="glyphicon glyphicon-folder-close"></span>
+        </div>
+        <div class="media-body">
+          <h4 class="media-heading">{!! $job->title !!}</h4>
+          <p> #{!! $job->id !!} </p>
+          <p>{!! $job->skills_required !!} | </p>
 
-<!-- User Id Field -->
-<div class="form-group">
-    {!! Form::label('user_id', 'User Id:') !!}
-    <p>{!! $job->user_id !!}</p>
-</div>
-
-<!-- Title Field -->
-<div class="form-group">
-    {!! Form::label('title', 'Title:') !!}
-    <p>{!! $job->title !!}</p>
-</div>
-
-<!-- Skills Required Field -->
-<div class="form-group">
-    {!! Form::label('skills_required', 'Skills Required:') !!}
-    <p>{!! $job->skills_required !!}</p>
-</div>
-
-<!-- Description Field -->
-<div class="form-group">
-    {!! Form::label('description', 'Description:') !!}
-    <p>{!! $job->description !!}</p>
+        </div>
 </div>
 
 <!-- Work Type Field -->
 <div class="form-group">
     {!! Form::label('work_type', 'Work Type:') !!}
-    <p>{!! $job->work_type !!}</p>
+    <p></p>
 </div>
 
 <!-- Job Type Field -->
@@ -46,16 +28,46 @@
     <p>{!! $job->status !!}</p>
 </div>
 
+
+
+<!-- User Id Field -->
+<div class="form-group">
+    {!! Form::label('user_id', 'User Id:') !!}
+    <p>
+    <a href="/users/{!! $job->user['id'] !!}">{!! $job->user['name'] !!} </a>
+
+    </p>
+</div>
+
+
+
+<!-- Skills Required Field -->
+<div class="form-group">
+    {!! Form::label('skills_required', 'Skills Required:') !!}
+   
+</div>
+
+<!-- Description Field -->
+<div class="form-group">
+    {!! Form::label('description', 'Description:') !!}
+    <p>{!! $job->description !!}</p>
+</div>
+
+
 <!-- Organisation Id Field -->
 <div class="form-group">
     {!! Form::label('organisation_id', 'Organisation Id:') !!}
-    <p>{!! $job->organisation_id !!}</p>
+    <p>
+        <a href="/organisations/{!! $job->organisation['id'] !!}">{!! $job->organisation['name'] !!} </a>
+    </p>
 </div>
 
 <!-- Country Id Field -->
 <div class="form-group">
     {!! Form::label('country_id', 'Country Id:') !!}
-    <p>{!! $job->country_id !!}</p>
+    <p>
+        <a href="/countries/{!! $job->country['id'] !!}">{!! $job->country['name'] !!} </a>
+    </p>
 </div>
 
 <!-- Deleted At Field -->
