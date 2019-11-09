@@ -1,90 +1,50 @@
+
 <div class="media">
         <div class="media-left">
-            <span class="glyphicon glyphicon-folder-close"></span>
+            <span class="glyphicon glyphicon-folder-close text-muted"></span>
         </div>
         <div class="media-body">
-          <h4 class="media-heading">{!! $job->title !!}</h4>
-          <p> #{!! $job->id !!} </p>
-          <p>{!! $job->skills_required !!} | </p>
+        <h4 class="media-heading">{!! $job->title !!} </h4>
+        <p class="text-muted"> #{!! $job->id !!} | status: {!! $job->status !!} 
+            | {!! $job->work_type !!} | {!! $job->job_type !!}
+        </p>
+          <p>
+
+            <a href="/users/{!! $job->user['id'] !!}">{!! $job->user['name'] !!} </a> |
+
+              
+            | <a href="/organisations/{!! $job->organisation['id'] !!}">
+                    {!! $job->organisation['name'] !!}</a>
+
+                | <a href="/countries/{!! $job->country['id'] !!}">
+                    {!! $job->country['name'] !!}
+                  </a>
+            </p>
+
+          <p>{!! $job->skills_required !!} 
+               </p>
 
         </div>
 </div>
 
-<!-- Work Type Field -->
-<div class="form-group">
-    {!! Form::label('work_type', 'Work Type:') !!}
-    <p></p>
-</div>
-
-<!-- Job Type Field -->
-<div class="form-group">
-    {!! Form::label('job_type', 'Job Type:') !!}
-    <p>{!! $job->job_type !!}</p>
-</div>
-
-<!-- Status Field -->
-<div class="form-group">
-    {!! Form::label('status', 'Status:') !!}
-    <p>{!! $job->status !!}</p>
-</div>
-
-
-
-<!-- User Id Field -->
-<div class="form-group">
-    {!! Form::label('user_id', 'User Id:') !!}
-    <p>
-    <a href="/users/{!! $job->user['id'] !!}">{!! $job->user['name'] !!} </a>
-
-    </p>
-</div>
+<div class="media">
+        
+        <div class="media-body">
+          <h4 class="media-heading">Job Description</h4>
+          <p class="text-muted">
+               Created: {!! $job->created_at->format('D d M m Y') !!}
+                </br>
+                @if(!empty($job->updated_at))
+                
+                Last Update: {!! $job->updated_at->format('D d M m Y') !!}
+                @endif
+          </p>
+          <p> {!! $job->description !!} </p> 
+          
+         
+         
+        </div>
+      </div>
 
 
-
-<!-- Skills Required Field -->
-<div class="form-group">
-    {!! Form::label('skills_required', 'Skills Required:') !!}
-   
-</div>
-
-<!-- Description Field -->
-<div class="form-group">
-    {!! Form::label('description', 'Description:') !!}
-    <p>{!! $job->description !!}</p>
-</div>
-
-
-<!-- Organisation Id Field -->
-<div class="form-group">
-    {!! Form::label('organisation_id', 'Organisation Id:') !!}
-    <p>
-        <a href="/organisations/{!! $job->organisation['id'] !!}">{!! $job->organisation['name'] !!} </a>
-    </p>
-</div>
-
-<!-- Country Id Field -->
-<div class="form-group">
-    {!! Form::label('country_id', 'Country Id:') !!}
-    <p>
-        <a href="/countries/{!! $job->country['id'] !!}">{!! $job->country['name'] !!} </a>
-    </p>
-</div>
-
-<!-- Deleted At Field -->
-<div class="form-group">
-    {!! Form::label('deleted_at', 'Deleted At:') !!}
-    <p>{!! $job->deleted_at !!}</p>
-</div>
-
-<!-- Created At Field -->
-<div class="form-group">
-    {!! Form::label('created_at', 'Created At:') !!}
-    <p>{!! $job->created_at !!}</p>
-</div>
-
-<!-- Updated At Field -->
-<div class="form-group">
-    {!! Form::label('updated_at', 'Updated At:') !!}
-    <p>{!! $job->updated_at !!}</p>
-</div>
 
