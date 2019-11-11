@@ -29,6 +29,10 @@ class InvitaionController extends AppBaseController
      */
     public function index(Request $request)
     {
+        $input = $request->all();
+       
+
+
         $invitaions = $this->invitaionRepository->all();
 
         return view('invitaions.index')
@@ -55,6 +59,7 @@ class InvitaionController extends AppBaseController
     public function store(CreateInvitaionRequest $request)
     {
         $input = $request->all();
+        $input['user_id'] = Auth::user()->id;
 
         $invitaion = $this->invitaionRepository->create($input);
 

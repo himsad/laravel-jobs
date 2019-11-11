@@ -10,6 +10,8 @@ use Illuminate\Http\Request;
 use Auth;
 use Flash;
 use Response;
+use App\Models\Country;
+use App\Models\Organisation;
 
 class JobController extends AppBaseController
 {
@@ -104,7 +106,13 @@ class JobController extends AppBaseController
             return redirect(route('jobs.index'));
         }
 
-        return view('jobs.edit')->with('job', $job);
+        $countries = Country::all(); 
+        $organisations = Organisation::where('user_id', Auth::user()->id)->get();
+
+        return view('jobs.edit')
+        ->with('job', $job)
+        ->with('organisations', $organisations)
+        ->with('countries', $countries);
     }
 
     /**
