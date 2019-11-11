@@ -51,16 +51,45 @@
     {!! Form::text('work_type', null, ['class' => 'form-control']) !!}
 </div>
 
-<!-- Job Type Field -->
+
 <div class="form-group col-sm-6">
-    {!! Form::label('job_type', 'Job Type:') !!}
-    {!! Form::text('job_type', null, ['class' => 'form-control']) !!}
+  <label for="work_type">Work type</label>
+  <select class="form-control" id="work_type" name="work_type">
+    <option value="{{ $job->work_type }}">{{ $job->work_type }}</option>
+    <option value="full time"> remote </option>
+    <option value="part time"> onsite </option>
+    <option value="remote and onsite"> remote and onsite </option>
+    
+  </select>
+</div>
+
+
+<div class="form-group col-sm-6">
+  <label for="job_type">Job type</label>
+  <select class="form-control" id="job_type" name="job_type">
+    <option value="{{ $job->job_type }}">{{ $job->job_type }}</option>
+    <option value="full time">full time</option>
+    <option value="part time">part time</option>
+    
+  </select>
 </div>
 
 <!-- Status Field -->
 <div class="form-group col-sm-6">
     {!! Form::label('status', 'Status:') !!}
     {!! Form::text('status', null, ['class' => 'form-control']) !!}
+</div>
+
+
+<div class="form-group col-sm-6">
+  <label for="status">Status</label>
+  <select class="form-control" id="status" name="status">
+    <option value="{{ $job->status }}">{{ $job->status }}</option>
+    <option value="active "> Active </option>
+    <option value="paused"> Paused </option>
+  
+    
+  </select>
 </div>
 
 
