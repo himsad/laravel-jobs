@@ -118,7 +118,7 @@ class AccountController extends AppBaseController
         if (empty($account)) {
             Flash::error('Account not found');
 
-            return redirect(route('accounts.index'));
+            return redirect(route('accounts.ind ex'));
         }
 
         $account = $this->accountRepository->update($request->all(), $id);

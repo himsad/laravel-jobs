@@ -74,12 +74,6 @@
   </select>
 </div>
 
-<!-- Status Field -->
-<div class="form-group col-sm-6">
-    {!! Form::label('status', 'Status:') !!}
-    {!! Form::text('status', null, ['class' => 'form-control']) !!}
-</div>
-
 
 <div class="form-group col-sm-6">
   <label for="status">Status</label>
@@ -87,6 +81,7 @@
     <option value="{{ $job->status }}">{{ $job->status }}</option>
     <option value="active "> Active </option>
     <option value="paused"> Paused </option>
+    <option value="closed"> Closed </option>
   
     
   </select>

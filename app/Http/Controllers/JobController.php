@@ -12,6 +12,8 @@ use Flash;
 use Response;
 use App\Models\Country;
 use App\Models\Organisation;
+use App\Models\Job;
+
 
 class JobController extends AppBaseController
 {
@@ -30,13 +32,36 @@ class JobController extends AppBaseController
      *
      * @return Response
      */
-    public function index(Request $request)
+    public function index(Request $request, $job_type = null)
     {
-        $jobs = $this->jobRepository->all();
+
+        if($job_type == null){
+
+            $jobs = $this->jobRepository->all();
+        }else if($job_type == 'all_jobs'){
+
+             //get all jobs that are active | and are relevant to my field
+              //get all jobs that I created
+              Flash::info('<span class="lead text-bold">All open job listings.</span>');
+                $jobs = Job::where('status', 'active')->get();
+
+        }else if($job_type == 'jobs_i_created'){
+
+            
+             //get all jobs that I created
+             Flash::info('<span class="lead text-bold">Jobs I created.</span>');
+             $jobs = Job::where('user_id', Auth::user()->id)->get();
+            
+        }
+
+       
 
         return view('jobs.index')
             ->with('jobs', $jobs);
     }
+
+ 
+
 
     /**
      * Show the form for creating a new Job.

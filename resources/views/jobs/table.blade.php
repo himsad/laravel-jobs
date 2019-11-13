@@ -1,20 +1,19 @@
-<div class="table-responsive">
-    <table class="table" id="jobs-table">
+<div class="table-condensed">
+
+    <table class="table table-hover" id="jobs-table">
         <thead>
             <tr>
            
-                <th>Title</th>
+                <th></th>
               
 
-                <th>Work Type</th>
-                
-         
-                @if(Auth::check() && (Auth::user()->id == $job->user_id || Auth::user()->id == Auth::user()->role_id < 3 ))
-            
-                     <th>Status</th>
+
+                @if(Auth::check())
+             
+
                      <th colspan="3"></th>
+               
                 @endif
-            
             </tr>
         </thead>
         <tbody>
@@ -27,10 +26,22 @@
                     {!! $job->title !!}
                     </a>
 
+                <br />
+                <span class="small text-muted">
+                    <i class="glyphicon glyphicon-map-marker"></i>
+                    {!! $job->work_type !!} | {!! $job->job_type !!}</span>
+
 
                 <br />
-                <a href="/user/{!! $job->user['id'] !!}" class="text-muted small">  {!! $job->user['name'] !!}</a>
-                        
+                <i class="glyphicon glyphicon-th text-muted"></i>
+                
+                @if(Auth::check()  && (Auth::user()->id == $job->user_id || Auth::user()->id == Auth::user()->role_id < 3 ))
+
+                <a href="/user/{!! $job->user['id'] !!}" class="text-muted small"> 
+                     {!! $job->user['name'] !!}</a>
+                     |
+                @endif
+
                         <a href="/organisations/{!! $job->organisation['id'] !!}" class="text-muted small">
                            | {!! $job->organisation['name'] !!}</a>   
 
@@ -40,13 +51,17 @@
 
         
  
-            <td class="small">{!! $job->work_type !!} | {!! $job->job_type !!}</td>
+
+
             @if(Auth::check()  && (Auth::user()->id == $job->user_id || Auth::user()->id == Auth::user()->role_id < 3 ))
          
-            <td class="small">{!! $job->status !!}</td>
+            
        
             
                 <td>
+
+
+                    <span class="small text-muted">{!! $job->status !!}</span>
                     
                     
                     <div class='btn-group'>

@@ -21,7 +21,7 @@ class CreateJobsTable extends Migration
             $table->longText('description');
             $table->string('work_type')->default('on site'); // remote // both
             $table->string('job_type')->default('full time'); // part time, contract
-            $table->string('status')->nullable()->default('open'); //close
+            $table->string('status')->nullable()->default('active'); //close
             
             $table->integer('organisation_id')->nullable();
             $table->integer('country_id')->nullable();

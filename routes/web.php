@@ -30,6 +30,9 @@ Route::resource('failedJobs', 'FailedJobController');
 
 Route::resource('invitaions', 'InvitaionController');
 
+
+Route::get('jobs/{job_type?}', 'JobController@index');
+
 Route::resource('jobs', 'JobController');
 
 Route::resource('organisationUsers', 'OrganisationUserController');
